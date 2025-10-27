@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt-a-Pet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Adopt-a-Pet</h1>
+        <p>Find your new best friend!</p>
+        <button class="hero-btn" onclick="scrollToPets()">Find a Friend</button>
+    </header>
+
+    <main id="pets">
+        <section class="filters">
+            <input type="text" id="searchBox" placeholder="Search by name or breed...">
+            <select id="filterType">
+                <option value="">All Types</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Bird">Bird</option>
+            </select>
+        </section>
+
+        <section id="petListContainer">
+            <div id="petList">
+                <p>Loading pets...</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="petModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Pet image">
+            <h2 id="modalName"></h2>
+            <p id="modalBreed"></p>
+            <p id="modalAge"></p>
+            <p id="modalLocation"></p>
+            <p id="modalBio"></p>
+            <button class="adopt-btn" onclick="applyToAdopt()">Apply to Adopt</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
