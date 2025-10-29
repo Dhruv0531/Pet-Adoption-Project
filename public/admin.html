@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #f9f9f9;">
+
+  <nav class="admin-nav">
+    <h1>Admin Dashboard</h1>
+    <button id="logoutBtn">Log Out</button>
+  </nav>
+
+  <div class="admin-container">
+    <div class="admin-box">
+      <h2>Add New Pet</h2>
+      <form id="addPetForm">
+        <input type="text" id="petName" placeholder="Name" required>
+        <input type="text" id="petType" placeholder="Type (e.g., Dog)" required>
+        <input type="text" id="petBreed" placeholder="Breed" required>
+        <input type="text" id="petAge" placeholder="Age" required>
+        <input type="text" id="petLocation" placeholder="Location" required>
+        <input type="text" id="petImage" placeholder="Image URL" required>
+        <textarea id="petBio" rows="3" placeholder="Bio"></textarea>
+        <button type-="submit" class="adopt-btn" style="background-color: #007bff;">Add Pet</button>
+      </form>
+    </div>
+
+    <div class="admin-box admin-list">
+      <h2>Manage Pets</h2>
+      <ul id="petManagementList">
+        </ul>
+    </div>
+
+    <div class="admin-box admin-list" style="grid-column: 1 / -1;">
+      <h2>Adoption Applications</h2>
+      <ul id="applicationsList">
+        </ul>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

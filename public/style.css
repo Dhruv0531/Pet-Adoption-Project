@@ -122,7 +122,7 @@ header h1 {
     background-color: #0056b3;
 }
 
-/* --- Modal --- */
+/* --- Modals (Details & Apply) --- */
 .modal-overlay {
     display: none; /* Hidden by default */
     position: fixed;
@@ -195,6 +195,71 @@ header h1 {
 
 .adopt-btn:hover {
     background-color: #218838;
+}
+
+/* --- Application Form Styles --- */
+#applyForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+#applyForm label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+#applyForm input,
+#applyForm textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* --- Admin & Login Page Styles --- */
+.login-card { 
+  background: #fff; 
+  padding: 2rem; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+  width: 350px; 
+  margin: 5rem auto;
+}
+.login-card h1 { text-align: center; margin-top: 0; }
+.login-card form { display: flex; flex-direction: column; gap: 15px; }
+.login-card input { padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+.login-card button { background-color: #007bff; color: white; cursor: pointer; border: none; padding: 12px; font-size: 1rem; border-radius: 5px; }
+.login-card button:hover { background-color: #0056b3; }
+#error-msg { color: #e00; text-align: center; font-size: 0.9rem; }
+
+.admin-nav { background: #333; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.admin-nav h1 { margin: 0; font-size: 1.5rem; }
+.admin-nav button { background: #e00; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+
+.admin-container { max-width: 1200px; margin: 2rem auto; padding: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.admin-box { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.admin-box h2 { margin-top: 0; }
+.admin-box form { display: flex; flex-direction: column; gap: 10px; }
+.admin-box input, .admin-box textarea { width: 100%; padding: 8px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+.admin-list ul { list-style: none; padding: 0; }
+.admin-list li { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; }
+.admin-list .pet-actions button { margin-left: 5px; padding: 5px 8px; font-size: 0.8rem; cursor: pointer; }
+.btn-delete { background: #e00; color: white; border: none; border-radius: 4px; }
+.btn-adopt { background: #007bff; color: white; border: none; border-radius: 4px; }
+#applicationsList { max-height: 400px; overflow-y: auto; }
+#applicationsList li { display: block; }
+#applicationsList strong { color: #007bff; }
+
+/* --- About Page Styles --- */
+.about-container {
+  max-width: 900px; 
+  margin: 2rem auto; 
+  padding: 2rem; 
+  background: #fff; 
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 /* Animations */

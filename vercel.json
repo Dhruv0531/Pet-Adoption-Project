@@ -24,6 +24,26 @@
       "dest": "/public/script.js"
     },
     {
+      "src": "/login.js",
+      "dest": "/public/login.js"
+    },
+    {
+      "src": "/admin.js",
+      "dest": "/public/admin.js"
+    },
+    {
+      "src": "/about",
+      "dest": "/public/about.html"
+    },
+    {
+      "src": "/admin",
+      "dest": "/public/admin.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/public/login.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/index.html"
     }

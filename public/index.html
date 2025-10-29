@@ -10,7 +10,7 @@
 
     <header>
         <h1>Adopt-a-Pet</h1>
-        <p>Find your new best friend!</p>
+        <p>Find your new best friend! | <a href="/about" style="color:white;">About Us</a></p>
         <button class="hero-btn" onclick="scrollToPets()">Find a Friend</button>
     </header>
 
@@ -42,8 +42,34 @@
             <p id="modalAge"></p>
             <p id="modalLocation"></p>
             <p id="modalBio"></p>
-            <button class="adopt-btn" onclick="applyToAdopt()">Apply to Adopt</button>
+            <button class="adopt-btn" id="applyBtn" onclick="applyToAdopt(this)">Apply to Adopt</button>
         </div>
+    </div>
+
+    <div id="applyModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeApplyModal()">&times;</span>
+        <h2 id="applyModalTitle">Apply for [Pet Name]</h2>
+        
+        <form id="applyForm" onsubmit="submitApplication(event)">
+          <input type="hidden" id="applyPetId" name="petId">
+          <input type="hidden" id="applyPetName" name="petName">
+          
+          <label for="applyName">Your Name:</label>
+          <input type="text" id="applyName" name="name" required>
+          
+          <label for="applyEmail">Your Email:</label>
+          <input type="email" id="applyEmail" name="email" required>
+          
+          <label for="applyPhone">Your Phone:</label>
+          <input type="tel" id="applyPhone" name="phone" required>
+          
+          <label for="applyMessage">Why are you a good fit?</label>
+          <textarea id="applyMessage" name="message" rows="4"></textarea>
+          
+          <button type="submit" class="adopt-btn">Submit Application</button>
+        </form>
+      </div>
     </div>
 
     <script src="script.js"></script>

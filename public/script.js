@@ -1,8 +1,6 @@
 // This will hold the data we fetch from the server
 let allPets = [];
-
-// This relative path will correctly fetch '/api/pets' on Vercel
-const API_URL = ''; 
+const API_URL = ''; // Relative path for Vercel
 
 function renderPets(list) {
   const petList = document.getElementById("petList");
@@ -14,15 +12,14 @@ function renderPets(list) {
   list.forEach((pet) => {
     const card = document.createElement("div");
     card.className = "pet-card";
-    // We use pet._id, which is the unique ID from the database
     card.innerHTML = `
-  _    <img src="${pet.image}" alt="${pet.name}">
+      <img src="${pet.image}" alt="${pet.name}">
       <div class="pet-info">
         <h3>${pet.name}</h3>
         <p>${pet.breed} • ${pet.age}</p>
         <p>${pet.location}</p>
       </div>
-            <button class="details-btn" onclick="showDetails('${pet._id}')">View Details</button>
+      <button class="details-btn" onclick="showDetails('${pet._id}')">View Details</button>
     `;
     petList.appendChild(card);
   });
@@ -40,7 +37,6 @@ function filterPets() {
   renderPets(filtered);
 }
 
-// Updated to find by ID
 function showDetails(id) {
   const pet = allPets.find((p) => p._id === id); 
   if (!pet) return;
@@ -51,16 +47,17 @@ function showDetails(id) {
   document.getElementById("modalAge").textContent = `Age: ${pet.age}`;
   document.getElementById("modalLocation").textContent = `Location: ${pet.location}`;
   document.getElementById("modalBio").textContent = pet.bio;
+  
+  // Store pet info on the apply button
+  const applyBtn = document.getElementById("applyBtn");
+  applyBtn.dataset.petId = pet._id;
+  applyBtn.dataset.petName = pet.name;
+
   document.getElementById("petModal").style.display = "flex";
 }
 
 function closeModal() {
   document.getElementById("petModal").style.display = "none";
-}
-
-function applyToAdopt() {
-  alert(" Thank you! We'll contact you soon about your adoption application.");
-  closeModal();
 }
 
 function scrollToPets() {
@@ -70,18 +67,62 @@ function scrollToPets() {
 // This function runs when the page loads
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // 1. Fetch pets from our backend API
     const response = await fetch(`${API_URL}/api/pets`);
     allPets = await response.json(); 
-    
-    // 2. Render them
     renderPets(allPets); 
   } catch (error) {
     console.error('Failed to load pets:', error);
-    document.getElementById("petList").innerHTML = "<p>Failed to load pets. Check the console for errors.</p>";
+    document.getElementById("petList").innerHTML = "<p>Failed to load pets. Please try again later.</p>";
   }
   
-  // 3. Set up the event listeners
   document.getElementById("filterType").addEventListener("change", filterPets);
   document.getElementById("searchBox").addEventListener("input", filterPets);
 });
+
+
+// --- Application Modal Functions ---
+
+function applyToAdopt(button) {
+  const petId = button.dataset.petId;
+  const petName = button.dataset.petName;
+
+  document.getElementById("applyPetId").value = petId;
+  document.getElementById("applyPetName").value = petName;
+  document.getElementById("applyModalTitle").textContent = `Apply for ${petName}`;
+
+  closeModal(); // Close the details modal
+  document.getElementById("applyModal").style.display = "flex"; // Open the apply modal
+}
+
+function closeApplyModal() {
+  document.getElementById("applyModal").style.display = "none";
+}
+
+async function submitApplication(event) {
+  event.preventDefault(); 
+  
+  const form = document.getElementById("applyForm");
+  const formData = new FormData(form);
+  const applicationData = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch(`${API_URL}/api/applications`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(applicationData),
+    });
+
+    if (response.ok) {
+      alert('Thank you! Your application has been submitted successfully.');
+      closeApplyModal();
+      form.reset(); 
+    } else {
+      alert('Error: Could not submit application. Please try again.');
+    }
+  } catch (error) {
+    console.error('Failed to submit application:', error);
+    alert('An error occurred. Please check the console.');
+  }
+}
