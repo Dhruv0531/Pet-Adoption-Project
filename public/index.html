@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adopt-a-Pet</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header>
         <h1>Adopt-a-Pet</h1>
-        <p>Find your new best friend! | <a href="/about" style="color:white;">About Us</a></p>
+        <p>Find your new best friend!</p>
         <button class="hero-btn" onclick="scrollToPets()">Find a Friend</button>
     </header>
 
@@ -47,31 +49,37 @@
     </div>
 
     <div id="applyModal" class="modal-overlay">
-      <div class="modal-content">
-        <span class="close-btn" onclick="closeApplyModal()">&times;</span>
-        <h2 id="applyModalTitle">Apply for [Pet Name]</h2>
-        
-        <form id="applyForm" onsubmit="submitApplication(event)">
-          <input type="hidden" id="applyPetId" name="petId">
-          <input type="hidden" id="applyPetName" name="petName">
-          
-          <label for="applyName">Your Name:</label>
-          <input type="text" id="applyName" name="name" required>
-          
-          <label for="applyEmail">Your Email:</label>
-          <input type="email" id="applyEmail" name="email" required>
-          
-          <label for="applyPhone">Your Phone:</label>
-          <input type="tel" id="applyPhone" name="phone" required>
-          
-          <label for="applyMessage">Why are you a good fit?</label>
-          <textarea id="applyMessage" name="message" rows="4"></textarea>
-          
-          <button type="submit" class="adopt-btn">Submit Application</button>
-        </form>
-      </div>
-    </div>
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeApplyModal()">&times;</span>
+            <h2 id="applyModalTitle">Apply for [Pet Name]</h2>
 
+            <form id="applyForm" onsubmit="submitApplication(event)">
+                <input type="hidden" id="applyPetId" name="petId">
+                <input type="hidden" id="applyPetName" name="petName">
+
+                <label for="applyName">Your Name:</label>
+                <input type="text" id="applyName" name="name" required>
+
+                <label for="applyEmail">Your Email:</label>
+                <input type="email" id="applyEmail" name="email" required>
+
+                <label for="applyPhone">Your Phone:</label>
+                <input type="tel" id="applyPhone" name="phone" required>
+
+                <label for="applyMessage">Why are you a good fit?</label>
+                <textarea id="applyMessage" name="message" rows="4"></textarea>
+
+                <button type="submit" class="adopt-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2025 Adopt-a-Pet. All rights reserved.</p>
+            <p><a href="/about">About Us</a> | <a href="/login">Admin Login</a></p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
+
 </html>

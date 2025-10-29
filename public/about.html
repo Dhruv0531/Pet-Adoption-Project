@@ -3,30 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us</title>
+  <title>About Us - Adopt-a-Pet</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Consistent Header -->
   <header>
     <h1><a href="/" style="color:white; text-decoration: none;">Adopt-a-Pet</a></h1>
-    <p>Our Mission</p>
+    <p>Our Story & Our Mission</p>
   </header>
   
   <main class="about-container">
-    <h2>About Us</h2>
-    <p>Welcome to Adopt-a-Pet, a project created to demonstrate a full-stack web application.</p>
-    <p>Our mission is to connect loving homes with animals in need. We believe every pet deserves a second chance, and we've built this platform to make that connection easier.</p>
-    <p>This project is built with:</p>
-    <ul>
-      <li><strong>Frontend:</strong> HTML, CSS, and Vanilla JavaScript</li>
-      <li><strong>Backend:</strong> Node.js and Express</li>
-      <li><strong>Database:</strong> MongoDB Atlas</li>
-      <li><strong>Authentication:</strong> JWT (JSON Web Tokens) & bcrypt</li>
-      <li><strong>Deployment:</strong> Vercel</li>
-    </ul>
-    <br>
-    <p><a href="/">← Back to pets</a></p>
+    
+    <!-- Section 1: Our Mission -->
+    <section class="about-section text-center">
+      <h2>Our Mission</h2>
+      <p class="lead-text">We believe every pet deserves a loving and permanent home. Our mission is to connect homeless animals with caring individuals and families, creating lifelong bonds and happy tails.</p>
+    </section>
+
+    <!-- Section 2: Our Process -->
+    <section class="about-section">
+      <h3>The Adoption Journey</h3>
+      <p>Finding your new best friend is a journey we take with you. Our process is designed to ensure a perfect match for both you and the pet.</p>
+      
+      <ol class="process-steps">
+        <li>
+          <strong>1. Browse Our Pets:</strong>
+          <p>Explore the profiles of the wonderful animals currently in our care. Read their bios and fall in love.</p>
+        </li>
+        <li>
+          <strong>2. Submit an Application:</strong>
+          <p>Found a potential match? Click "Apply to Adopt" and fill out our simple form. This helps us get to know you.</p>
+        </li>
+        <li>
+          <strong>3. Meet & Greet:</strong>
+          <p>Our team will review your application and schedule a meet & greet. This is the perfect time to interact with the pet and ask questions.</p>
+        </li>
+        <li>
+          <strong>4. Welcome Home:</strong>
+          <p>Once we've all agreed it's a great fit, we'll finalize the adoption. You'll go home with a new, loving companion!</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Section 3: Call to Action -->
+    <section class="about-section cta-box">
+      <h3>How You Can Help</h3>
+      <p>Not everyone can adopt, but everyone can help. Whether you volunteer your time, or provide a much-needed donation, your support makes our life-saving work possible.</p>
+      <a href="/" class="hero-btn" style="background-color: #007bff; max-width: 250px; margin: 1rem auto 0;">View Our Adoptable Pets</a>
+    </section>
+
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© 2025 Adopt-a-Pet. All rights reserved.</p>
+      <p><a href="/">Home</a> | <a href="/login">Admin Login</a></p>
+    </div>
+  </footer>
   
 </body>
 </html>
